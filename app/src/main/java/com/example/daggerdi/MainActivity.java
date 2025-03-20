@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnSave, btnGet;
     private MyComponent myComponent;
     @Inject
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences; //nowhere am i instantitating the sharedpreferences object
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         myComponent = DaggerMyComponent.builder()
                 .sharedPrefModule(new SharedPrefModule(this))
                 .build();
-        myComponent.inject(this);
+        myComponent.inject(this); //inject the dependency into this class
     }
 
 
